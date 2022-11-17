@@ -17,7 +17,7 @@ class Event {
     _summary = eventJSON['summary'] ?? "";
 
     List<String> descriptionSplited = _description.split("\\n");
-    _teacher = descriptionSplited[descriptionSplited.length - 2] ?? "";
+    _teacher = (descriptionSplited.length - 2 >= 0) ? descriptionSplited[descriptionSplited.length - 2] : "";
     _start = DateTime.parse(eventJSON['dtstart']['dt']);
     _end = DateTime.parse(eventJSON['dtend']['dt']);
     _eventLastModified = DateTime.parse(eventJSON['lastModified']['dt']);

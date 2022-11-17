@@ -91,7 +91,7 @@ packages:
       path: "."
       ref: HEAD
       resolved-ref: "5ab4bb5f2ba9efd9c27ed29e913c01a2a4cc6da4"
-      url: "git@github.com:hatch01/dartus-tomuss-client.git"
+      url: "https://github.com/hatch01/dartus-tomuss-client.git"
     source: git
     version: "1.0.3"
   dartz:

@@ -9,8 +9,7 @@ import 'package:test/test.dart';
 void main() async {
   test('getAgenda from URL', () async {
     final List<String> icalLinks = [
-      "https://adelb.univ-lyon1.fr/jsp/custom/modules/plannings/anonymous_cal.jsp?resources=46404&projectId=1&calType=ical&firstDate=2022-01-24&lastDate=2022-01-29",
-      "https://adelb.univ-lyon1.fr/jsp/custom/modules/plannings/anonymous_cal.jsp?resources=10069&projectId=1&calType=ical&firstDate=2022-01-24&lastDate=2022-01-29"
+      "http://adelb.univ-lyon1.fr/jsp/custom/modules/plannings/anonymous_cal.jsp?resources=7311&projectId=2&calType=ical&firstDate=2022-09-10&lastDate=2023-09-30",
     ];
 
     for (final String link in icalLinks) {

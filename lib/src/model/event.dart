@@ -7,6 +7,7 @@ class Event {
   late DateTime _start;
   late DateTime _end;
   late DateTime _eventLastModified;
+
   Event.fromJSON(final dynamic eventJSON) {
     _location = eventJSON['location'] ?? "";
     _description = (eventJSON['description'] ?? "")
@@ -15,21 +16,24 @@ class Event {
         .trim();
     _summary = eventJSON['summary'] ?? "";
 
-    _teacher = RegExp("\\n\\n.*?\\n([A-Z -])+\\n", multiLine: true)
-            .firstMatch(_description)
-            ?.group(1)
-            ?.trim() ??
-        "";
+    List<String> descriptionSplited = _description.split("\\n");
+    _teacher = descriptionSplited[descriptionSplited.length - 2] ?? "";
     _start = DateTime.parse(eventJSON['dtstart']['dt']);
     _end = DateTime.parse(eventJSON['dtend']['dt']);
     _eventLastModified = DateTime.parse(eventJSON['lastModified']['dt']);
   }
 
   String get name => _summary;
+
   String get location => _location;
+
   String get teacher => _teacher;
+
   String get description => _description;
+
   DateTime get start => _start;
+
   DateTime get end => _end;
+
   DateTime get lastModified => _eventLastModified;
 }

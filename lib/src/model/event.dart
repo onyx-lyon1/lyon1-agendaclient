@@ -18,6 +18,9 @@ class Event {
 
     List<String> descriptionSplited = _description.split("\\n");
     _teacher = (descriptionSplited.length - 2 >= 0) ? descriptionSplited[descriptionSplited.length - 2] : "";
+    if (_teacher.split(" ").length < 2) {
+      _teacher = "";
+    }
     _start = DateTime.parse(eventJSON['dtstart']['dt']);
     _end = DateTime.parse(eventJSON['dtend']['dt']);
     _eventLastModified = DateTime.parse(eventJSON['lastModified']['dt']);

@@ -1,5 +1,4 @@
 import 'package:dartus/tomuss.dart';
-import 'package:dartz/dartz.dart';
 import 'package:lyon1agenda/src/lyon1agenda.dart';
 import 'package:lyon1agenda/src/model/agenda.dart';
 import 'package:lyon1agenda/src/model/event.dart';
@@ -15,11 +14,11 @@ void main() async {
     for (final String link in icalLinks) {
       final Lyon1Agenda agendaClient =
           Lyon1Agenda(AgendaURL(Authentication("", "")));
-      final Option<Agenda> agendaOpt = await agendaClient.getAgenda(url: link);
+      final Agenda? agendaOpt = await agendaClient.getAgenda(url: link);
 
-      expect(agendaOpt.isSome(), equals(true));
+      expect(agendaOpt == null, equals(false));
 
-      final Agenda agenda = agendaOpt.getOrElse(() => Agenda.empty());
+      final Agenda agenda = agendaOpt ?? Agenda.empty();
 
       for (final Event event in agenda.events) {
         expect(event.start.runtimeType, equals(DateTime));

@@ -9,12 +9,12 @@ dart pub get https://github.com/clementherve/lyon1-agendaclient
 # Example
 ```dart
 final Lyon1Agenda agendaClient = Lyon1Agenda();
-final Option<Agenda> agendaOpt =
+final Agenda? agendaOpt =
     await agendaClient.getAgenda(url: "http://<url>");
 if (agendaOpt.isNone()) {
     // handle gracefully
 }
-final Agenda agenda = agendaOpt.toNullable() ?? Agenda.empty();
+final Agenda agenda = agendaOpt ?? Agenda.empty();
 
 for (final Event e in agenda.events) {
     print(e.name);

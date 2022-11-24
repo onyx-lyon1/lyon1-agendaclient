@@ -1,5 +1,4 @@
 import 'package:dartus/tomuss.dart';
-import 'package:dartz/dartz.dart';
 import 'package:lyon1agenda/src/utils/agenda_url.dart';
 import 'package:test/test.dart';
 import 'package:dotenv/dotenv.dart';
@@ -24,8 +23,7 @@ void main() async {
     expect(auth.isAuthenticated, equals(true));
 
     final AgendaURL agendaURL = AgendaURL(auth);
-    final Option<String> urlOpt = await agendaURL.getURL();
-    final String url = urlOpt.toNullable() ?? "";
+    final String url = await agendaURL.getURL();
     expect(url.isNotEmpty, equals(true));
     expect(url.contains(RegExp("resources=[0-9,]+&")), equals(true));
     expect(url.contains(RegExp("projectId=[0-9]+&")), equals(true));

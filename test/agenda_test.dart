@@ -4,11 +4,14 @@ import 'package:lyon1agenda/src/model/agenda.dart';
 import 'package:lyon1agenda/src/model/event.dart';
 import 'package:lyon1agenda/src/utils/agenda_url.dart';
 import 'package:test/test.dart';
+import 'package:dotenv/dotenv.dart';
 
 void main() async {
+  DotEnv env = DotEnv(includePlatformEnvironment: true);
   test('getAgenda from URL', () async {
+    env.load();
     final List<String> icalLinks = [
-      "http://adelb.univ-lyon1.fr/jsp/custom/modules/plannings/anonymous_cal.jsp?resources=7311&projectId=2&calType=ical&firstDate=2022-09-10&lastDate=2023-09-30",
+      env['ICAL_LINK'] ?? "",
     ];
 
     for (final String link in icalLinks) {
@@ -28,7 +31,7 @@ void main() async {
         expect(event.description, isNot(isEmpty));
         expect(event.description.contains("Exported"), equals(false));
         expect(event.name, isNot(isEmpty));
-        expect(event.location, isNot(isEmpty));
+        //expect(event.location, isNot(isEmpty)); sometime no location is provided
 
         // TODO: investigate
         // expect(event.teacher, isNot(isEmpty)); // does not pass

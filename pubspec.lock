@@ -83,8 +83,8 @@ packages:
     description:
       path: "."
       ref: HEAD
-      resolved-ref: "7e7b976f3d2d288828e32cc65bb672c5c59f3099"
-      url: "https://github.com/hatch01/dartus-tomuss-client.git"
+      resolved-ref: "807c0d1a5307a089e532fe1be5b80c862a8e0704"
+      url: "https://github.com/onyx-lyon1/dartus-tomuss-client.git"
     source: git
     version: "1.0.3"
   dotenv:

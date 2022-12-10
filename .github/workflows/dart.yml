@@ -27,7 +27,7 @@ jobs:
         with:
           envkey_USERNAME: ${{ secrets.EYMERIC_ID }}
           envkey_PASSWORD: ${{ secrets.EYMERIC_PASSWORD }}
-          envkey_ICAL_LINK: ${{ secrets.ICAL_LINK }}
+          envkey_ICAL_LINK: ${{ secrets.EYMERIC_ICAL_LINK }}
           file: ".env"
       
       - name: Run tests

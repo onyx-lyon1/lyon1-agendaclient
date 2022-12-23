@@ -1,6 +1,8 @@
 # ADE ICal Client
 An ICal Client for ADE Lyon 1
 
+![test result](https://github.com/onyx-lyon1/lyon1-agendaclient/actions/workflows/dart.yml/badge.svg)
+
 # Adding it to your project
 ```bash
 dart pub get https://github.com/clementherve/lyon1-agendaclient
